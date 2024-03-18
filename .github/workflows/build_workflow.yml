@@ -18,6 +18,7 @@ jobs:
       PR_USERNAME: ${{github.event.pull_request.user.login}}
       PR_REPONAME: ${{github.event.pull_request.head.repo.name}}
       PR_BRANCH: ${{ github.head_ref }}
+    permissions: write-all
     steps:
       - name: prepare
         run: |
