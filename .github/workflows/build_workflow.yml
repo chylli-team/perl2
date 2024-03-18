@@ -20,6 +20,8 @@ jobs:
     steps:
       - name: prepare 
         run: |
+          apt-get update
+          apt-get -y install git
           git config --global user.email "chylli@deriv.com"
           git config --global user.name "Chylli"
           git config --global --add safe.directory $PWD # ignore ownership problem
