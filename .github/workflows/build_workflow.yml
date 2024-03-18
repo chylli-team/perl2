@@ -50,7 +50,7 @@ jobs:
       - name: push
         run: |
           git commit --allow-empty -m "rebuild $VERSION";
-          git checkout -b $BRANCH # TODO move it to env
+          git checkout -b $PR_BRANCH # TODO move it to env
           git remote add $PR_OWNER git@github.com:$PR_REPONAME/$PR_OWNER
-          git push $PR_OWNER $PR_REPONAME
+          git push $PR_OWNER $PR_BRANCH
 
