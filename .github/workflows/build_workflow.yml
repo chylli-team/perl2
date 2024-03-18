@@ -18,6 +18,8 @@ jobs:
       GITHUB_TOKEN: ${{ github.token }}
     permissions: write-all
     steps:
+      - name: prepare 
+        run: |
           git config --global user.email "chylli@deriv.com"
           git config --global user.name "Chylli"
           git config --global --add safe.directory $PWD # ignore ownership problem
