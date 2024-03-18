@@ -54,7 +54,8 @@ jobs:
         run: |
           git remote -v
           git commit --allow-empty -m "rebuild $VERSION [ci skip]";
-          git checkout -b $PR_OWNER/$PR_BRANCH # TODO move it to env
+          #git checkout -b $PR_OWNER/$PR_BRANCH # TODO move it to env
+          git checkout -b test_branch
           #git remote add $PR_OWNER https://github.com/$PR_OWNER/$PR_REPONAME
           #git push $PR_OWNER $PR_BRANCH
           git push https://oauth2:$GITHUB_TOKEN@github.com/chylli-team/perl2 HEAD:test_branch
