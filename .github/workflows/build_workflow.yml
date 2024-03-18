@@ -49,8 +49,9 @@ jobs:
           #bash ./rebuild.sh
       - name: push
         run: |
+          git remote -v
           git commit --allow-empty -m "rebuild $VERSION [ci skip]";
           git checkout -b $PR_BRANCH # TODO move it to env
-          git remote add $PR_OWNER git@github.com:$PR_REPONAME/$PR_OWNER
+          git remote add $PR_OWNER https://github.com/$PR_REPONAME/$PR_OWNER
           git push $PR_OWNER $PR_BRANCH
 
