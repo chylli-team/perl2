@@ -14,8 +14,6 @@ jobs:
     defaults:
       run:
         shell: bash -le {0}
-    env:
-      GITHUB_TOKEN: ${{ github.token }}
     permissions: write-all
     steps:
       - name: prepare 
@@ -35,5 +33,5 @@ jobs:
           git checkout -b test_branch
           #git remote add $PR_OWNER https://github.com/$PR_OWNER/$PR_REPONAME
           #git push $PR_OWNER $PR_BRANCH
-          git push https://oauth2:$GITHUB_TOKEN@github.com/chylli-team/perl2 HEAD:test_branch
+          git push -f origin HEAD:test_branch
 
