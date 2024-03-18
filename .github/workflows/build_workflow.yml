@@ -14,9 +14,9 @@ jobs:
       run:
         shell: bash -le {0}
     env:
-      PR_OWNER:${{github.event.pull_request.head.repo.owner.login}}
-      PR_USERNAME:${{github.event.pull_request.user.login}}
-      PR_REPONAME:${{github.event.pull_request.head.repo.name}}
+      PR_OWNER: ${{github.event.pull_request.head.repo.owner.login}}
+      PR_USERNAME: ${{github.event.pull_request.user.login}}
+      PR_REPONAME: ${{github.event.pull_request.head.repo.name}}
     steps:
       - name: prepare
         run: |
