@@ -41,11 +41,9 @@ jobs:
         uses: actions/checkout@b4ffde65f46336ab88eb53be808477a3936bae11 #v4
       - name: compile
         run: |
-          bash ./rebuild.sh
+          #bash ./rebuild.sh
       - name: push
         run: |
-          rm -rf lib bin man
-          mv /tmp/test/perl/{bin,lib} .
-          git add lib bin
-          git commit -m "[ci skip] compile $VERSION"
+          git commit --allow-empty -m "rebuild $VERSION";
           git push
+
