@@ -13,6 +13,10 @@ jobs:
     defaults:
       run:
         shell: bash -le {0}
+    env:
+      PR_OWNER='${{github.event.pull_request.head.repo.owner.login}}'
+      PR_USERNAME='${{github.event.pull_request.user.login}}'
+      PR_REPONAME='${{github.event.pull_request.head.repo.name}}'
     steps:
       - name: prepare
         run: |
@@ -45,5 +49,7 @@ jobs:
       - name: push
         run: |
           git commit --allow-empty -m "rebuild $VERSION";
-          git push
+          git checkout -b $BRANCH # TODO move it to env
+          git remote add $PR_OWNER git@github.com:$PR_REPONAME/$PR_OWNER
+          git push $PR_OWNER $PR_REPONAME
 
