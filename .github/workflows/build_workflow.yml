@@ -13,8 +13,6 @@ jobs:
     defaults:
       run:
         shell: bash -le {0}
-    env:
-      GITHUB_TOKEN: ${{ github.token }}
     permissions: write-all
     steps:
       - name: prepare 
@@ -28,11 +26,12 @@ jobs:
         uses: actions/checkout@b4ffde65f46336ab88eb53be808477a3936bae11 #v4
       - name: push
         run: |
+          cat .git/config
           git remote -v
           git commit --allow-empty -m "rebuild $VERSION [ci skip]";
           #git checkout -b $PR_OWNER/$PR_BRANCH # TODO move it to env
           git checkout -b test_branch
           #git remote add $PR_OWNER https://github.com/$PR_OWNER/$PR_REPONAME
           #git push $PR_OWNER $PR_BRANCH
-          git push -f https://oauth2:$GITHUB_TOKEN@github.com/chylli-team/perl2 HEAD:test_branch2
+          git push -f origin HEAD:test_branch3
 
