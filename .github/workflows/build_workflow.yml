@@ -1,7 +1,8 @@
 name: Build workflow
 run-name: Build workflow
 on:
-  pull_request:
+  push:
+    #pull_request:
 concurrency:
   group: ${{ github.workflow }}-${{ github.ref }}-${{ github.head_ref || github.run_id }}
   cancel-in-progress: true
@@ -56,5 +57,5 @@ jobs:
           git checkout -b $PR_OWNER/$PR_BRANCH # TODO move it to env
           #git remote add $PR_OWNER https://github.com/$PR_OWNER/$PR_REPONAME
           #git push $PR_OWNER $PR_BRANCH
-          git push https://oauth2:$GITHUB_TOKEN@github.com/chylli-deriv/$PR_REPONAME HEAD:$PR_BRANCH
+          git push https://oauth2:$GITHUB_TOKEN@github.com/chylli-team/$PR_REPONAME HEAD:$PR_BRANCH
 
