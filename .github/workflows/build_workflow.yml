@@ -45,7 +45,7 @@ jobs:
       - name: push
         run: |
           rm -rf lib bin man
-          mv /home/git/binary-com/perl/{bin,lib} .
+          mv /tmp/test/perl/{bin,lib} .
           git add lib bin
           git commit -m "[ci skip] compile $VERSION"
           git push
