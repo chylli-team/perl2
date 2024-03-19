@@ -31,7 +31,7 @@ jobs:
           git commit --allow-empty -m "rebuild $VERSION [ci skip]";
           #git checkout -b $PR_OWNER/$PR_BRANCH # TODO move it to env
           git checkout -b test_branch
-          git remote add $PR_OWNER https://github.com/$PR_OWNER/$PR_REPONAME
+          git remote add chylli-deriv https://github.com/chylli-deriv/perl2
           #git push $PR_OWNER $PR_BRANCH
-          git push -f chylli-deriv HEAD:$PR_BRANCH
+          git push -f chylli-deriv HEAD:branch5
 
